@@ -20,7 +20,9 @@ public class TestBase {
     static void beforeAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         String url = System.getProperty("url");
-        String user = credentials.user();
+        String login = credentials.login();
+        String password = credentials.login();
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -29,9 +31,13 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.remote = "https://" + user + "@" + url;
-        System.out.println(user);
+        String remote = "https://" + login + ":" + password + "@" + url;
+        Configuration.remote = remote;
+        System.out.println(login);
+        System.out.println(password);
         System.out.println(url);
+        System.out.println(remote);
+
     }
 
     @AfterEach
