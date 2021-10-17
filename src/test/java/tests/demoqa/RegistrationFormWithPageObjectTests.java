@@ -1,10 +1,12 @@
 package tests.demoqa;
 
+import org.junit.jupiter.api.Tag;
 import pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
 import static tests.demoqa.TestDataWithFaker.*;
 
+@Tag("remoteUrl")
 public class RegistrationFormWithPageObjectTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
