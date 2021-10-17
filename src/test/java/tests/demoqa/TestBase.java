@@ -21,7 +21,7 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         String url = System.getProperty("url");
         String login = credentials.login();
-        String password = credentials.login();
+        String password = credentials.password();
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
