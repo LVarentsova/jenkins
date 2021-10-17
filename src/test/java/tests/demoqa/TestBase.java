@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import tests.helpers.Attach;
 
+@Tag("remoteUrl")
 public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        String url = System.getProperty("url","selenoid.autotests.cloud/wd/hub1");
+        String url = System.getProperty("url");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
